@@ -1,0 +1,30 @@
+T = {1,2,3,4,5}
+
+channel input, output : T
+
+Proc1 = input?x:T -> output.x -> Proc1
+
+Proc2 = input?x:T -> Proc2'({x})
+
+Proc2'(X) = output?a:X -> Proc2'(diff(X,{a}))
+            []
+            input?b:T -> Proc2'(union(X,{b}))
+
+
+-- 2) Proc1 is a one-place buffer; it can output exactly what was input on the last action. Proc2 is a set; it can hold up to all of T, and output its elements in any order, regardless of when they were added to the set.
+
+--3) Proc1 refines Proc2; traces(Proc1) is the set of all traces where some element e of T occurs first as input.e, followed by output.e and so on, or occurs once at the end of the trace as input.e. traces(Proc2) is the set of all traces with any sequence of elements from T where any output.e is preceded by “its own” input.e, possibly with other events in between. Clearly, traces(Proc1) is a subset of traces(Proc2) but not vice versa, so Proc2 does not refine Proc1.
+
+-- 4)
+assert Proc1 [T= Proc2
+
+assert Proc2 [T= Proc1
+
+-- 5)
+Proc3 = input?x:T -> Proc3'({x})
+
+Proc3'(X) = output?a:X -> Proc3'(diff(X,{a}))
+            []
+            input?b:diff(T, X) -> Proc3'(union(X,{b}))
+
+assert Proc2 [T= Proc3

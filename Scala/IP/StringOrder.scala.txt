@@ -1,0 +1,29 @@
+/**  With Scala 2.12:
+fsc -cp ./scalatest_2.12-3.0.5.jar:./scalactic_2.12-3.0.5.jar TestTest.scala
+scala -cp ./scalatest_2.12-3.0.5.jar:./scalactic_2.12-3.0.5.jar org.scalatest.run TestTest
+*/
+import org.scalatest.FunSuite
+
+
+class TestTest extends FunSuite{
+  var x=0
+  test("x=0"){ assert(x===0) }
+  x = 1
+  test("x=1"){ assert(x===1) }
+}
+
+
+/*
+//  Corrected:
+class TestTest extends FunSuite{
+  var x = 0
+  test("x=0"){ 
+    x=0
+    assert(x===0) 
+  }
+  test("x=1"){ 
+    x=1
+    assert(x===1)
+  }
+}
+*/  

@@ -1,0 +1,130 @@
+ThreadId = {0,1}  -- thread identities
+Boolean = {0,1}   -- represent booleans as 0 and 1
+Data = union(ThreadId, Boolean) -- both thread IDs and booleans
+
+datatype VarName = b0 | b1 | turn  -- names of variables
+
+-- We'll store b[0] in b0 and b[1] in b1; the following function helps
+-- translate
+
+b(0) = b0
+b(1) = b1
+
+
+--------- Exercise 1: A variable
+
+channel read, write : VarName . ThreadId . Data
+
+---------
+
+-- The high level events for entering, and leaving the critical section.
+
+channel enter, leave : ThreadId
+
+----- Program 1
+
+-- me is the identity of this thread
+-- other = 1-me is the identity of the other thread
+--  (1)  b[me] := 1 ;
+--  (2)  while turn != me do
+--  (3)    while b[other]==1 do skip end ;
+--  (4)    turn := me
+--  (5)  end ;
+--  (6)  enter critical region ;
+--       ...
+--  (7)  leave critical region ;
+--  (8)  b[me] := 0
+
+
+----- Program 2
+
+--  (1)  b[me] := 1 ;
+--  (2)  turn := other ;
+--  (3)  while (b[other] == 1 and turn == other) do skip end ;
+--  (4)  enter critical region ;
+--       ...
+--  (5)  leave critical region ;
+--  (6)  b[me] := 0
+
+
+---- Peterson's Algorithm
+--  (1)  b[me] := 1
+--  (2)  turn := other
+--  (3)  waitfor (b[other] == 0 or turn == me)
+--  (4)  enter critical section
+--  (5)  leave critical section
+--  (6)  b[me] := 0
+
+
+-- 1
+Var(name, x) = read.name?thread!x -> Var(name, x)
+        [] write.name?thread?y -> Var(name, y)
+
+
+-- 2
+Thread1(me) = write.b(me).me!1 ->
+            (read.turn.me!(1-me) -> read.b(1-me).me!0 -> write.turn.me!me -> Crit1(me)
+            [] read.turn.me!me -> Crit1(me))
+Crit1(me) = enter.me -> leave.me -> write.b(me).me!0 -> Thread1(me)
+
+System1 = ((Var(turn, 0) |~| Var(turn, 1)) ||| Var(b(0), 0) ||| Var(b(1), 0)) [|{|read, write|}|] (Thread1(0) ||| Thread1(1))
+
+
+-- 3
+Spec = (enter.0 -> leave.0 -> Spec) [] (enter.1 -> leave.1 -> Spec)
+-- It doesn't matter here whether we use a ND choice or external choice, since we are doing traces refinement, and [] and |~| result in the same set of traces.
+
+assert Spec [T= (System1 \ {|read, write|})
+
+-- Proposal 1 does not satisfy the mutex property; this is because say if turn = 1, then thread 0 checks to see that 1 isn't waiting and is about to set turn to 0 - but if before thread 0 can do this, thread 1 becomes active, and sees that turn = 1, thread 1 can enter the critical section, then thread 0 sets turn = 0 also enters the critical section. Hence the mutual exclusion is violated
+
+
+-- 4
+Thread2(me) = write.b(me).me!1 -> write.turn.me!(1-me) -> read.b(1-me).me!0 -> read.turn.me!me -> Crit2(me)
+
+Crit2(me) = enter.me -> leave.me -> write.b(me).me!0 -> Thread2(me)
+
+System2 = ((Var(turn, 0) |~| Var(turn, 1)) ||| Var(b(0), 0) ||| Var(b(1), 0)) [|{|read, write|}|] (Thread2(0) ||| Thread2(1))
+
+assert Spec [T= (System2 \ {|read, write|})
+
+-- Proposal 2 refines the specification for mutual exclusion.
+
+
+-- 5
+Thread3(me) = write.b(me).me!1 -> write.turn.me!(1-me) ->
+              (read.b(1-me).me!0 -> Crit3(me)
+              [] read.turn.me!me -> Crit3(me))
+Crit3(me) = enter.me -> leave.me -> write.b(me).me!0 -> Thread3(me)
+
+System3 = ((Var(turn, 0) |~| Var(turn, 1)) ||| Var(b(0), 0) ||| Var(b(1), 0)) [|{|read, write|}|] (Thread3(0) ||| Thread3(1))
+
+assert Spec [T= (System3 \ {|read, write|})
+
+-- Proposal 3 also passes the test for mutual exclusion. The waitfor construct is modelled as an external choice; if either of the conditions we are waiting for becomes possible, the choice is made and we can proceed to the critical section.
+
+
+-- 6
+
+channel wait, gain : ThreadId
+
+Thread4(me) = wait!me -> write.b(me).me!1 -> write.turn.me!(1-me) ->
+              (read.b(1-me).me!0 -> Crit4(me)
+              [] read.turn.me!me -> Crit4(me))
+
+Crit4(me) = gain!me -> enter.me -> leave.me -> write.b(me).me!0 -> Thread4(me)
+
+System4 = ((Var(turn, 0) |~| Var(turn, 1)) ||| Var(b(0), 0) ||| Var(b(1), 0)) [|{|read, write|}|] (Thread4(0) ||| Thread4(1))
+
+Waiting(Ts) = wait?x:diff(ThreadId, Ts) -> Waiting(union(Ts, {x}))
+       [] Ts!={} & |~| i:Ts @ gain.i -> Waiting(diff(Ts,{i}))
+-- Ts is the set of threads waiting to enter the critical section. Any thread not waiting may start waiting and gets added to the set - any thread in the set may gain access to the resource and be removed from the set. If more than one thread is waiting in the set, one thread gets chosen non-deterministically.
+
+Spec4 = Waiting({})
+Alpha = {|read, write, enter, leave|}
+
+assert Spec4 [FD= System4 \ Alpha
+
+-- Here we modify System4 so that a thread communicates a wait event when it starts waiting, and a gain event when it gains access to the critical section. The refinement holds if this modified system can communicate a gain.x event at some point after a wait.x event (regardless of how many other events occur in between)
+
+-- this liveness check passes

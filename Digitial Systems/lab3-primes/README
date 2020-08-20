@@ -1,0 +1,9 @@
+University of Oxford
+Honour School of Computer Science
+DIGITAL SYSTEMS
+lab3-primes
+
+A program that prints a list of primes on the serial port.  One
+version uses polling to find when the serial port is ready to transmit
+a character; another uses interrupts, and is able to overlap
+outputting one prime with the search for the next one.

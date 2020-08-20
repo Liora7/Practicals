@@ -1,0 +1,251 @@
+[0m[[0m[0minfo[0m] [0m[0mMain Scala API documentation to /Users/lioraweisz/Scala/ip3/AutoSnail/src/target/scala-2.12/api...[0m
+[0m[[0m[0mdebug[0m] [0m[0mGetting org.scala-sbt:compiler-bridge_2.12:1.2.5:compile for Scala 2.12.7[0m
+[0m[[0m[0mdebug[0m] [0m[0mCalling Scaladoc with arguments:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-d[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/Users/lioraweisz/Scala/ip3/AutoSnail/src/target/scala-2.12/api[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-bootclasspath[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/jre/classes:/Users/lioraweisz/.sbt/boot/scala-2.12.7/lib/scala-library.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-classpath[0m
+[0m[[0m[0mdebug[0m] [0m[0m	dummy_7b1d447b[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/Users/lioraweisz/Scala/ip3/AutoSnail/src/AutoSnail.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/Users/lioraweisz/Scala/ip3/AutoSnail/src/Benchmark.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/Users/lioraweisz/Scala/ip3/AutoSnail/src/HeapPriorityQueue.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/Users/lioraweisz/Scala/ip3/AutoSnail/src/Observable.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/Users/lioraweisz/Scala/ip3/AutoSnail/src/PathFinder.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/Users/lioraweisz/Scala/ip3/AutoSnail/src/PriorityQueue.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/Users/lioraweisz/Scala/ip3/AutoSnail/src/QPathFinder.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/Users/lioraweisz/Scala/ip3/AutoSnail/src/RoadMap.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/Users/lioraweisz/Scala/ip3/AutoSnail/src/SimplePriorityQueue.scala[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:4:14: object swing is not a member of package scala[0m
+[0m[[0m[31merror[0m] [0m[0mimport scala.swing._[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:5:14: object swing is not a member of package scala[0m
+[0m[[0m[31merror[0m] [0m[0mimport scala.swing.event._[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:11:17: not found: type MainFrame[0m
+[0m[[0m[31merror[0m] [0m[0m        extends MainFrame with Observable.Observer[PathFinder] {[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:13:5: not found: value title[0m
+[0m[[0m[31merror[0m] [0m[0m    title = "AutoSnail Express"[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:14:5: not found: value font[0m
+[0m[[0m[31merror[0m] [0m[0m    font = new Font("SansSerif", Font.PLAIN, 12)[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:4:14: object swing is not a member of package scala[0m
+[0m[[0m[31merror[0m] [0m[0mimport scala.swing._[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:5:14: object swing is not a member of package scala[0m
+[0m[[0m[31merror[0m] [0m[0mimport scala.swing.event._[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:9:55: not found: type Component[0m
+[0m[[0m[31merror[0m] [0m[0mclass MapViewer(map: RoadMap, app: AutoSnail) extends Component {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:147:52: not found: type TextField[0m
+[0m[[0m[31merror[0m] [0m[0m    private class PassiveTextField(w: Int) extends TextField {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:23:33: not found: type CheckBox[0m
+[0m[[0m[31merror[0m] [0m[0m    private val workCheck = new CheckBox("Show working")[0m
+[0m[[0m[31merror[0m] [0m[0m                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:24:33: not found: type CheckBox[0m
+[0m[[0m[31merror[0m] [0m[0m    private val heurCheck = new CheckBox("Use heuristic")[0m
+[0m[[0m[31merror[0m] [0m[0m                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:25:34: not found: type CheckBox[0m
+[0m[[0m[31merror[0m] [0m[0m    private val delayCheck = new CheckBox("Delay between steps")[0m
+[0m[[0m[31merror[0m] [0m[0m                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:28:35: not found: type Slider[0m
+[0m[[0m[31merror[0m] [0m[0m    private val delaySlider = new Slider {[0m
+[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:29:9: not found: value min[0m
+[0m[[0m[31merror[0m] [0m[0m        min = 0; max = 100; value = 50[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:29:18: not found: value max[0m
+[0m[[0m[31merror[0m] [0m[0m        min = 0; max = 100; value = 50[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:29:29: not found: value value[0m
+[0m[[0m[31merror[0m] [0m[0m        min = 0; max = 100; value = 50[0m
+[0m[[0m[31merror[0m] [0m[0m                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:30:9: not found: value majorTickSpacing[0m
+[0m[[0m[31merror[0m] [0m[0m        majorTickSpacing = 100; minorTickSpacing = 10[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:30:33: not found: value minorTickSpacing[0m
+[0m[[0m[31merror[0m] [0m[0m        majorTickSpacing = 100; minorTickSpacing = 10[0m
+[0m[[0m[31merror[0m] [0m[0m                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:31:9: not found: value paintTicks[0m
+[0m[[0m[31merror[0m] [0m[0m        paintTicks = true; paintLabels = true[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:31:28: not found: value paintLabels[0m
+[0m[[0m[31merror[0m] [0m[0m        paintTicks = true; paintLabels = true[0m
+[0m[[0m[31merror[0m] [0m[0m                           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:32:9: not found: value visible[0m
+[0m[[0m[31merror[0m] [0m[0m        visible = false[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:36:9: not found: value Button[0m
+[0m[[0m[31merror[0m] [0m[0m        Button("Search") {[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AutoSnail.scala:4:14: object swing is not a member of package scala[0m
+[0m[[0m[31merror[0m] [0m[0mimport scala.swing._[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:40:31: not found: value Button[0m
+[0m[[0m[31merror[0m] [0m[0m    private val resetButton = Button("Reset") { app.reset() }[0m
+[0m[[0m[31merror[0m] [0m[0m                              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:42:31: not found: type FlowPanel[0m
+[0m[[0m[31merror[0m] [0m[0m    private val buttons = new FlowPanel(searchButton, resetButton)[0m
+[0m[[0m[31merror[0m] [0m[0m                              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:46:48: not found: type Label[0m
+[0m[[0m[31merror[0m] [0m[0m    private class MyLabel(txt: String) extends Label {[0m
+[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:47:9: package scala.text is not a value[0m
+[0m[[0m[31merror[0m] [0m[0m        text = txt; font = labelFont[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:47:21: not found: value font[0m
+[0m[[0m[31merror[0m] [0m[0m        text = txt; font = labelFont[0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:50:32: not found: type GridBagPanel[0m
+[0m[[0m[31merror[0m] [0m[0m    private val controls = new GridBagPanel {[0m
+[0m[[0m[31merror[0m] [0m[0m                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:51:30: not found: type Component[0m
+[0m[[0m[31merror[0m] [0m[0m        val elements = Array[Component](new MyLabel("From:"), fromText,[0m
+[0m[[0m[31merror[0m] [0m[0m                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:68:30: not found: type BorderPanel[0m
+[0m[[0m[31merror[0m] [0m[0m    private val column = new BorderPanel {[0m
+[0m[[0m[31merror[0m] [0m[0m                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:69:9: not found: value add[0m
+[0m[[0m[31merror[0m] [0m[0m        add(controls, BorderPanel.Position.North)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:69:23: not found: value BorderPanel[0m
+[0m[[0m[31merror[0m] [0m[0m        add(controls, BorderPanel.Position.North)[0m
+[0m[[0m[31merror[0m] [0m[0m                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:73:5: not found: value contents[0m
+[0m[[0m[31merror[0m] [0m[0m    contents = new BorderPanel {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:80:5: not found: value listenTo[0m
+[0m[[0m[31merror[0m] [0m[0m    listenTo(workCheck)[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:81:5: not found: value reactions[0m
+[0m[[0m[31merror[0m] [0m[0m    reactions += {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:82:14: not found: value ButtonClicked[0m
+[0m[[0m[31merror[0m] [0m[0m        case ButtonClicked(`workCheck`) =>[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:87:5: not found: value listenTo[0m
+[0m[[0m[31merror[0m] [0m[0m    listenTo(delayCheck, delaySlider)[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:88:5: not found: value reactions[0m
+[0m[[0m[31merror[0m] [0m[0m    reactions += {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:89:14: not found: value ButtonClicked[0m
+[0m[[0m[31merror[0m] [0m[0m        case ButtonClicked(`delayCheck`) =>[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:93:14: not found: value ValueChanged[0m
+[0m[[0m[31merror[0m] [0m[0m        case ValueChanged(`delaySlider`) =>        [0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:106:5: not found: value listenTo[0m
+[0m[[0m[31merror[0m] [0m[0m    listenTo(viewer)[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:107:5: not found: value reactions[0m
+[0m[[0m[31merror[0m] [0m[0m    reactions += { [0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:200:56: not found: type Event[0m
+[0m[[0m[31merror[0m] [0m[0m    case class TownClicked(town: RoadMap.Town) extends Event[0m
+[0m[[0m[31merror[0m] [0m[0m                                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:114:9: not found: value Swing[0m
+[0m[[0m[31merror[0m] [0m[0m        Swing.onEDT { updateDisplay(pathfinder) }[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:119:18: value text is not a member of AppFrame.PassiveTextField[0m
+[0m[[0m[31merror[0m] [0m[0m        fromText.text = app.fromTown.name[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:120:16: value text is not a member of AppFrame.PassiveTextField[0m
+[0m[[0m[31merror[0m] [0m[0m        toText.text = app.toTown.name[0m
+[0m[[0m[31merror[0m] [0m[0m               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:123:22: value text is not a member of AppFrame.PassiveTextField[0m
+[0m[[0m[31merror[0m] [0m[0m            distText.text = ""[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:127:26: value text is not a member of AppFrame.PassiveTextField[0m
+[0m[[0m[31merror[0m] [0m[0m                distText.text = "%.1f".format(d)[0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:129:26: value text is not a member of AppFrame.PassiveTextField[0m
+[0m[[0m[31merror[0m] [0m[0m                distText.text = "infinity"[0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:148:9: not found: value columns[0m
+[0m[[0m[31merror[0m] [0m[0m        columns = w; editable = false[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:148:22: not found: value editable[0m
+[0m[[0m[31merror[0m] [0m[0m        columns = w; editable = false[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AppFrame.scala:149:9: not found: value background[0m
+[0m[[0m[31merror[0m] [0m[0m        background = Color.WHITE[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AutoSnail.scala:58:15: value location is not a member of AppFrame[0m
+[0m[[0m[31merror[0m] [0m[0m        frame.location = new Point(250, 50)[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AutoSnail.scala:59:15: value pack is not a member of AppFrame[0m
+[0m[[0m[31merror[0m] [0m[0m        frame.pack()[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AutoSnail.scala:60:15: value visible is not a member of AppFrame[0m
+[0m[[0m[31merror[0m] [0m[0m        frame.visible = true[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/AutoSnail.scala:75:9: not found: value Swing[0m
+[0m[[0m[31merror[0m] [0m[0m        Swing.onEDT {[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:19:5: not found: value minimumSize[0m
+[0m[[0m[31merror[0m] [0m[0m    minimumSize = new Dimension(width, height)[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:20:5: not found: value preferredSize[0m
+[0m[[0m[31merror[0m] [0m[0m    preferredSize = minimumSize[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:21:5: not found: value background[0m
+[0m[[0m[31merror[0m] [0m[0m    background = new Color(127, 225, 255) // Blue sea[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:22:5: not found: value foreground[0m
+[0m[[0m[31merror[0m] [0m[0m    foreground = new Color(255, 127, 63) // Tawny sand[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:25:5: not found: value tooltip[0m
+[0m[[0m[31merror[0m] [0m[0m    tooltip = ""[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:28:5: not found: value opaque[0m
+[0m[[0m[31merror[0m] [0m[0m    opaque = true[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:31:5: not found: value listenTo[0m
+[0m[[0m[31merror[0m] [0m[0m    listenTo(mouse.clicks)[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:31:14: not found: value mouse[0m
+[0m[[0m[31merror[0m] [0m[0m    listenTo(mouse.clicks)[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:34:5: not found: value reactions[0m
+[0m[[0m[31merror[0m] [0m[0m    reactions += {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:35:17: not found: type MouseClicked[0m
+[0m[[0m[31merror[0m] [0m[0m        case e: MouseClicked =>[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:37:28: not found: value publish[0m
+[0m[[0m[31merror[0m] [0m[0m            if (t != null) publish(new MapViewer.TownClicked(t))[0m
+[0m[[0m[31merror[0m] [0m[0m                           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:43:9: not found: value repaint[0m
+[0m[[0m[31merror[0m] [0m[0m        repaint()[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:90:36: not found: type Graphics2D[0m
+[0m[[0m[31merror[0m] [0m[0m    override def paintComponent(g: Graphics2D) {[0m
+[0m[[0m[31merror[0m] [0m[0m                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:137:35: not found: type Graphics2D[0m
+[0m[[0m[31merror[0m] [0m[0m    private def drawCoastlines(g: Graphics2D) {[0m
+[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:122:30: not found: type Graphics2D[0m
+[0m[[0m[31merror[0m] [0m[0m    private def drawRoads(g: Graphics2D) {[0m
+[0m[[0m[31merror[0m] [0m[0m                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:105:30: not found: type Graphics2D[0m
+[0m[[0m[31merror[0m] [0m[0m    private def drawTowns(g: Graphics2D) {[0m
+[0m[[0m[31merror[0m] [0m[0m                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:170:23: not found: type MouseEvent[0m
+[0m[[0m[31merror[0m] [0m[0m    def getTooltip(e: MouseEvent) = {[0m
+[0m[[0m[31merror[0m] [0m[0m                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:177:40: not found: type SuperMixin[0m
+[0m[[0m[31merror[0m] [0m[0m       new javax.swing.JComponent with SuperMixin {[0m
+[0m[[0m[31merror[0m] [0m[0m                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/ip3/AutoSnail/src/MapViewer.scala:179:31: not found: type MouseMoved[0m
+[0m[[0m[31merror[0m] [0m[0m               getTooltip(new MouseMoved(e))[0m
+[0m[[0m[31merror[0m] [0m[0m                              ^[0m
+[0m[[0m[0minfo[0m] [0m[0mNo documentation generated with unsuccessful compiler run[0m
+[0m[[0m[31merror[0m] [0m[0m76 errors found[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mdoc[0m) Scaladoc generation failed[0m

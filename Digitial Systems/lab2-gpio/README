@@ -1,0 +1,11 @@
+University of Oxford
+Honour School of Computer Science
+DIGITAL SYSTEMS
+lab2-gpio
+
+A program for an electronic Valentine's card that displays a beating
+heart image on the LEDs.  You are invited to make it interactive by
+displaying a different pattern when one of the buttons is pressed.
+
+TASKS: Compile and run the supplied program.  Make it interactive by
+displaying a different image if either of the two buttons is pressed.

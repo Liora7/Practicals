@@ -1,0 +1,214 @@
+
+-- 1
+datatype T = A | B | C | D | E
+
+channel moveLtoS : T.T.T  -- train t moves from end of line x to shed y
+channel moveStoL : T.T.T  -- train t moves from shed x to end of line y
+
+-- 3
+channel done  -- event only occurs when all sheds are occupied with the correct train and all ends of lines are empty
+
+-- 2
+datatype State = Occupied | Empty
+
+Shed'(x, Occupied, t) = moveStoL!t!x?y -> Shed(x, Empty)
+                      [] x==t & done -> STOP
+Shed(x, Empty) = moveLtoS?t?y!x -> Shed'(x, Occupied, t)
+
+Line(x, Occupied, t) = moveLtoS!t!x?y -> Line'(x, Empty)
+Line'(x, Empty) = moveStoL?t?y!x -> Line(x, Occupied, t)
+                [] done -> STOP
+
+-- 4
+alphaS(x) = union(union({moveLtoS.t.y.x | t <- T, y <- T}, {moveStoL.t.x.y | t <- T, y <- T}), {done})
+alphaL(x) = union(union({moveLtoS.t.x.y | t <- T, y <- T}, {moveStoL.t.y.x | t <- T, y <- T}), {done})
+alpha = union(union({| moveLtoS |}, {| moveStoL |}), {done})
+
+Sheds = || x : T @ [alphaS(x)] Shed(x, Empty)
+Lines = Line(A, Occupied, E) |||  Line(B, Occupied, D) |||  Line(C, Occupied, C) |||  Line(D, Occupied, B) |||  Line(E, Occupied, A)
+
+-- 5
+LtoS = {(A.A), (B.B), (C.C), (D.D), (E.E), (A.B), (C.A), (D.B), (D.E), (E.C)}
+StoL = {(A.A), (B.B), (C.C), (D.D), (E.E), (B.A), (A.C), (B.D), (E.D), (C.E)}
+
+LineConstraints = moveLtoS?t?(x.y) : LtoS -> LineConstraints
+
+ShedConstraints = moveStoL?t?(x.y) : StoL -> ShedConstraints
+
+Constraints = LineConstraints ||| ShedConstraints
+
+alphaCons = union({| moveLtoS |}, {| moveStoL |})
+
+System = (Sheds [| alpha |] Lines) [| alphaCons |] Constraints
+
+-- 6
+assert CHAOS(alphaCons) [T= System
+
+-- Trace:
+-- moveLtoS.E.A.A
+-- moveLtoS.A.E.E
+-- moveLtoS.B.D.D
+-- moveStoL.A.E.D
+-- moveLtoS.A.D.B
+-- moveStoL.A.B.A
+-- moveLtoS.D.B.B
+-- moveStoL.D.B.D
+-- moveLtoS.D.D.E
+-- moveLtoS.A.A.B
+-- moveStoL.E.A.A
+-- moveStoL.A.B.D
+-- moveLtoS.E.A.B
+-- moveStoL.E.B.B
+-- moveLtoS.A.D.B
+-- moveStoL.B.D.D
+-- moveStoL.A.B.A
+-- moveLtoS.B.D.B
+-- moveLtoS.A.A.A
+-- moveStoL.B.B.A
+-- moveStoL.D.E.D
+-- moveLtoS.E.B.B
+-- moveLtoS.D.D.D
+-- moveStoL.E.B.D
+-- moveLtoS.C.C.C
+-- moveLtoS.B.A.B
+-- moveLtoS.E.D.E
+-- done
+-- yields solution of length 27
+
+-- 7
+channel driver : T  -- the driver moves to train t
+
+DriverConstraints1 = driver?t -> (moveLtoS!t?(x.y) : LtoS -> DriverConstraints1
+                                [] moveStoL!t?(x.y) : StoL -> DriverConstraints1)
+
+DriverSystem1 = ((Sheds [| alpha |] Lines) [| alphaCons |] DriverConstraints1) \ {|driver|}
+
+assert CHAOS(alphaCons) [T= DriverSystem1
+
+
+-- This isn't necessarily minimal because the system sees every move as coming after a driver change - ie the system doesn't consider for several moves in the same train as a single change and hence there are as many driver changes (or taus) as moves and the system is minimizing the total number of states (equivalent to moves still).
+
+-- (27 moves, 19 driver changes)
+-- Trace:
+-- τ
+-- moveLtoS.B.D.B
+-- τ
+-- moveLtoS.A.E.E
+-- τ
+-- moveStoL.A.E.D
+-- τ
+-- moveLtoS.A.D.D
+-- τ
+-- moveStoL.B.B.D
+-- τ
+-- moveLtoS.B.D.E
+-- τ
+-- moveLtoS.E.A.B
+-- τ
+-- moveStoL.E.B.D
+-- τ
+-- moveStoL.B.E.E
+-- τ
+-- moveLtoS.E.D.E
+-- τ
+-- moveStoL.A.D.D
+-- τ
+-- moveLtoS.A.D.B
+-- τ
+-- moveStoL.E.E.D
+-- τ
+-- moveLtoS.B.E.E
+-- τ
+-- moveLtoS.E.D.D
+-- τ
+-- moveStoL.B.E.D
+-- τ
+-- moveStoL.A.B.A
+-- τ
+-- moveLtoS.A.A.A
+-- τ
+-- moveLtoS.B.D.B
+-- τ
+-- moveStoL.E.D.D
+-- τ
+-- moveStoL.B.B.A
+-- τ
+-- moveLtoS.E.D.E
+-- τ
+-- moveLtoS.D.B.B
+-- τ
+-- moveStoL.D.B.D
+-- τ
+-- moveLtoS.C.C.C
+-- τ
+-- moveLtoS.B.A.B
+-- τ
+-- moveLtoS.D.D.D
+-- done
+
+
+
+-- 8
+-- So to find the solution with the least driver changes we need the system to see several moves in the same train as following a single driver change so that there can be fewer driver moves than train moves and the total number of states decreases with fewer driver moves.
+
+DriverConstraints2 = driver?t -> DriverConstraints'(t)
+DriverConstraints'(t) = (moveLtoS!t?(x.y) : LtoS -> DriverConstraints'(t)
+                          [] moveStoL!t?(x.y) : StoL -> DriverConstraints'(t))
+                        [] (driver?z -> DriverConstraints'(z))
+
+DriverSystem2 = ((Sheds [| alpha |] Lines) [| alphaCons |] DriverConstraints2) \ {|driver|}
+
+assert CHAOS(alphaCons) [T= DriverSystem2
+
+-- (27 moves, 11 driver changes)
+-- Trace:
+-- τ
+-- moveLtoS.B.D.E
+-- τ
+-- moveLtoS.E.A.B
+-- moveStoL.E.B.D
+-- moveLtoS.E.D.D
+-- τ
+-- moveStoL.B.E.D
+-- moveLtoS.B.D.B
+-- moveStoL.B.B.A
+-- moveLtoS.B.A.A
+-- τ
+-- moveLtoS.A.E.E
+-- moveStoL.A.E.D
+-- moveLtoS.A.D.B
+-- moveStoL.A.B.A
+-- τ
+-- moveStoL.E.D.D
+-- moveLtoS.E.D.E
+-- τ
+-- moveLtoS.D.B.B
+-- moveStoL.D.B.D
+-- moveLtoS.D.D.D
+-- τ
+-- moveLtoS.A.A.B
+-- moveStoL.A.B.B
+-- τ
+-- moveStoL.B.A.A
+-- moveLtoS.B.A.B
+-- moveStoL.B.B.D
+-- τ
+-- moveLtoS.A.B.B
+-- moveStoL.A.B.A
+-- moveLtoS.A.A.A
+-- τ
+-- moveLtoS.B.D.B
+-- τ
+-- moveLtoS.C.C.C
+-- done
+
+
+-- However, this still minimizes the total number of moves + driver changes; to only minimize driver changes, we can use a controller process which checks that there are no solutions with only 10 driver moves:
+
+Controller(n) = n>0 & driver?t -> Controller(n-1)
+
+ControlledSystem = (((Sheds [| alpha |] Lines) [| alphaCons |] DriverConstraints2) [|{|driver|}|] Controller(10)) \ {|driver|}
+
+-- this assertion only fails if ControlledSystem can do event done, which the Controller only lets it do if if there are 10 driver changes or less - otherwise the Controller deadlocks and the system can't continue as the driver is "stuck" in some train.
+assert CHAOS(alphaCons) [T= ControlledSystem
+-- as this assertion passes, there is no solution with less than 11 driver moves and hence 11 moves is the minimum.

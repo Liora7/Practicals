@@ -1,0 +1,307 @@
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:1:11: object threadcso is not a member of package io[0m
+[0m[[0m[31merror[0m] [0m[0mimport io.threadcso._[0m
+[0m[[0m[31merror[0m] [0m[0m          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:7:30: not found: type PROC[0m
+[0m[[0m[31merror[0m] [0m[0m  def makePipeline(n: Int): (PROC, Chan[Int], Chan[Int]) = {[0m
+[0m[[0m[31merror[0m] [0m[0m                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:7:36: not found: type Chan[0m
+[0m[[0m[31merror[0m] [0m[0m  def makePipeline(n: Int): (PROC, Chan[Int], Chan[Int]) = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:7:47: not found: type Chan[0m
+[0m[[0m[31merror[0m] [0m[0m  def makePipeline(n: Int): (PROC, Chan[Int], Chan[Int]) = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:8:16: not found: value OneOne[0m
+[0m[[0m[31merror[0m] [0m[0m    val left = OneOne[Int] // inPort for pipeline[0m
+[0m[[0m[31merror[0m] [0m[0m               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:10:17: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m    var procs = proc{} // accumulate components[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:12:18: not found: value OneOne[0m
+[0m[[0m[31merror[0m] [0m[0m      val chan = OneOne[Int] // create new right channel[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:36:42: not found: type PROC[0m
+[0m[[0m[31merror[0m] [0m[0m  def comp(left: ?[Int], right: ![Int]): PROC = proc("COMP"){[0m
+[0m[[0m[31merror[0m] [0m[0m                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:36:18: not found: type ?[0m
+[0m[[0m[31merror[0m] [0m[0m  def comp(left: ?[Int], right: ![Int]): PROC = proc("COMP"){[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:36:33: not found: type ![0m
+[0m[[0m[31merror[0m] [0m[0m  def comp(left: ?[Int], right: ![Int]): PROC = proc("COMP"){[0m
+[0m[[0m[31merror[0m] [0m[0m                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:21:16: not found: type ?[0m
+[0m[[0m[31merror[0m] [0m[0m  def sort(in: ?[Int], out: ![Int], n: Int) = proc{[0m
+[0m[[0m[31merror[0m] [0m[0m               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:21:29: not found: type ![0m
+[0m[[0m[31merror[0m] [0m[0m  def sort(in: ?[Int], out: ![Int], n: Int) = proc{[0m
+[0m[[0m[31merror[0m] [0m[0m                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:21:47: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m  def sort(in: ?[Int], out: ![Int], n: Int) = proc{[0m
+[0m[[0m[31merror[0m] [0m[0m                                              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:23:16: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m    def send = proc{ // send stream of unsorted ints to start of pipeline[0m
+[0m[[0m[31merror[0m] [0m[0m               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:24:7: not found: value repeat[0m
+[0m[[0m[31merror[0m] [0m[0m      repeat{ val x = in?(); left!x }[0m
+[0m[[0m[31merror[0m] [0m[0m      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:24:34: value ! is not a member of Any[0m
+[0m[[0m[31merror[0m] [0m[0m      repeat{ val x = in?(); left!x }[0m
+[0m[[0m[31merror[0m] [0m[0m                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:25:12: value closeIn is not a member of Any[0m
+[0m[[0m[31merror[0m] [0m[0m      left.closeIn[0m
+[0m[[0m[31merror[0m] [0m[0m           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:27:15: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m    def rec = proc{ // receive stream of sorted ints from end of pipeline[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:28:7: not found: value repeat[0m
+[0m[[0m[31merror[0m] [0m[0m      repeat{ out!(right?()) }[0m
+[0m[[0m[31merror[0m] [0m[0m      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:29:13: value closeOut is not a member of Any[0m
+[0m[[0m[31merror[0m] [0m[0m      right.closeOut[0m
+[0m[[0m[31merror[0m] [0m[0m            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:31:24: value || is not a member of Any[0m
+[0m[[0m[31merror[0m] [0m[0m    def system = procs || send || rec[0m
+[0m[[0m[31merror[0m] [0m[0m                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:32:5: not found: value run[0m
+[0m[[0m[31merror[0m] [0m[0m    run(system)[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:36:49: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m  def comp(left: ?[Int], right: ![Int]): PROC = proc("COMP"){[0m
+[0m[[0m[31merror[0m] [0m[0m                                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:38:7: not found: value repeat[0m
+[0m[[0m[31merror[0m] [0m[0m      repeat { var x = left?() // keep asking for input, storing the larger of x and max in max and sending the other through to the next component[0m
+[0m[[0m[31merror[0m] [0m[0m      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:59:19: not found: value OneOne[0m
+[0m[[0m[31merror[0m] [0m[0m    val in, out = OneOne[Int][0m
+[0m[[0m[31merror[0m] [0m[0m                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:60:18: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m    def sender = proc{ for(x <- xs) in!x; in.close }[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:61:20: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m    def receiver = proc{ var i = 0; repeat{ ys(i) = out?(); i += 1 } }[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:61:37: not found: value repeat[0m
+[0m[[0m[31merror[0m] [0m[0m    def receiver = proc{ var i = 0; repeat{ ys(i) = out?(); i += 1 } }[0m
+[0m[[0m[31merror[0m] [0m[0m                                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:62:5: not found: value run[0m
+[0m[[0m[31merror[0m] [0m[0m    run(sender || CompSort.sort(in, out, N) || receiver)[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/CompSort.scala:67:14: not found: value exit[0m
+[0m[[0m[31merror[0m] [0m[0m    println; exit[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/MatrixMult.scala:1:11: object threadcso is not a member of package io[0m
+[0m[[0m[31merror[0m] [0m[0mimport io.threadcso._[0m
+[0m[[0m[31merror[0m] [0m[0m          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/MatrixMult.scala:13:26: not found: type Chan[0m
+[0m[[0m[31merror[0m] [0m[0m  private var toWorkers: Chan[Task] = null // = OneMany[Task][0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/MatrixMult.scala:16:29: not found: value ManyOne[0m
+[0m[[0m[31merror[0m] [0m[0m  private val toCollector = ManyOne[Res][0m
+[0m[[0m[31merror[0m] [0m[0m                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/MatrixMult.scala:20:24: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m  private def worker = proc("worker"){[0m
+[0m[[0m[31merror[0m] [0m[0m                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/MatrixMult.scala:21:5: not found: value repeat[0m
+[0m[[0m[31merror[0m] [0m[0m    repeat{[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/MatrixMult.scala:23:31: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Any[0m
+[0m[[0m[31merror[0m] [0m[0m required: Int[0m
+[0m[[0m[31merror[0m] [0m[0m      val result = (i, j, dot(i, j))[0m
+[0m[[0m[31merror[0m] [0m[0m                              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/MatrixMult.scala:23:34: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Any[0m
+[0m[[0m[31merror[0m] [0m[0m required: Int[0m
+[0m[[0m[31merror[0m] [0m[0m      val result = (i, j, dot(i, j))[0m
+[0m[[0m[31merror[0m] [0m[0m                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/MatrixMult.scala:36:29: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m  private def distributor = proc("distributor"){[0m
+[0m[[0m[31merror[0m] [0m[0m                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/MatrixMult.scala:49:27: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m  private def collector = proc("collector"){[0m
+[0m[[0m[31merror[0m] [0m[0m                          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/MatrixMult.scala:52:9: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Any[0m
+[0m[[0m[31merror[0m] [0m[0m required: Int[0m
+[0m[[0m[31merror[0m] [0m[0m      c(i)(j) = r[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/MatrixMult.scala:59:17: not found: value OneMany[0m
+[0m[[0m[31merror[0m] [0m[0m    toWorkers = OneMany[Task][0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/MatrixMult.scala:60:19: not found: value ||[0m
+[0m[[0m[31merror[0m] [0m[0m    val workers = || (for (i <- 0 until nWorkers) yield worker)[0m
+[0m[[0m[31merror[0m] [0m[0m                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/MatrixMult.scala:93:14: not found: value exit[0m
+[0m[[0m[31merror[0m] [0m[0m    println; exit[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:1:11: object threadcso is not a member of package io[0m
+[0m[[0m[31merror[0m] [0m[0mimport io.threadcso._[0m
+[0m[[0m[31merror[0m] [0m[0m          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:9:74: not found: type PROC[0m
+[0m[[0m[31merror[0m] [0m[0m  def comparator(in0: ?[Int], in1: ?[Int], out0: ![Int], out1: ![Int ]): PROC = proc{[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:9:23: not found: type ?[0m
+[0m[[0m[31merror[0m] [0m[0m  def comparator(in0: ?[Int], in1: ?[Int], out0: ![Int], out1: ![Int ]): PROC = proc{[0m
+[0m[[0m[31merror[0m] [0m[0m                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:9:36: not found: type ?[0m
+[0m[[0m[31merror[0m] [0m[0m  def comparator(in0: ?[Int], in1: ?[Int], out0: ![Int], out1: ![Int ]): PROC = proc{[0m
+[0m[[0m[31merror[0m] [0m[0m                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:9:50: not found: type ![0m
+[0m[[0m[31merror[0m] [0m[0m  def comparator(in0: ?[Int], in1: ?[Int], out0: ![Int], out1: ![Int ]): PROC = proc{[0m
+[0m[[0m[31merror[0m] [0m[0m                                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:9:64: not found: type ![0m
+[0m[[0m[31merror[0m] [0m[0m  def comparator(in0: ?[Int], in1: ?[Int], out0: ![Int], out1: ![Int ]): PROC = proc{[0m
+[0m[[0m[31merror[0m] [0m[0m                                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:9:81: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m  def comparator(in0: ?[Int], in1: ?[Int], out0: ![Int], out1: ![Int ]): PROC = proc{[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:10:5: not found: value repeat[0m
+[0m[[0m[31merror[0m] [0m[0m    repeat{[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:12:18: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m      def rec0 = proc{a = in0?()}[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:13:18: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m      def rec1 = proc{b = in1?()}[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:14:7: not found: value run[0m
+[0m[[0m[31merror[0m] [0m[0m      run( rec0 || rec1 ) // receive the inputs in either order[0m
+[0m[[0m[31merror[0m] [0m[0m      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:16:20: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m        def snd0 = proc{out0!b}[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:17:20: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m        def snd1 = proc{out1!a}[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:18:9: not found: value run[0m
+[0m[[0m[31merror[0m] [0m[0m        run( snd0 || snd1 ) // send outputs in either order[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:21:20: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m        def snd0 = proc{out0!a}[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:22:20: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m        def snd1 = proc{out1!b}[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:23:9: not found: value run[0m
+[0m[[0m[31merror[0m] [0m[0m        run( snd0 || snd1 )[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:30:57: not found: type PROC[0m
+[0m[[0m[31merror[0m] [0m[0m  def sort4(ins: List[?[Int ]], outs: List [![ Int ]]): PROC = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:30:23: not found: type ?[0m
+[0m[[0m[31merror[0m] [0m[0m  def sort4(ins: List[?[Int ]], outs: List [![ Int ]]): PROC = {[0m
+[0m[[0m[31merror[0m] [0m[0m                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:30:45: not found: type ![0m
+[0m[[0m[31merror[0m] [0m[0m  def sort4(ins: List[?[Int ]], outs: List [![ Int ]]): PROC = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:32:40: not found: value OneOne[0m
+[0m[[0m[31merror[0m] [0m[0m      val c0, c21, c22, c11, c12, c3 = OneOne[Int] //create intermediate channels[0m
+[0m[[0m[31merror[0m] [0m[0m                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:47:72: not found: type PROC[0m
+[0m[[0m[31merror[0m] [0m[0m    def insert(ins: List[?[Int ]], in: ?[Int], outs: List [![ Int ]]): PROC = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:47:26: not found: type ?[0m
+[0m[[0m[31merror[0m] [0m[0m    def insert(ins: List[?[Int ]], in: ?[Int], outs: List [![ Int ]]): PROC = {[0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:47:40: not found: type ?[0m
+[0m[[0m[31merror[0m] [0m[0m    def insert(ins: List[?[Int ]], in: ?[Int], outs: List [![ Int ]]): PROC = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:47:60: not found: type ![0m
+[0m[[0m[31merror[0m] [0m[0m    def insert(ins: List[?[Int ]], in: ?[Int], outs: List [![ Int ]]): PROC = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:49:15: not found: value OneOne[0m
+[0m[[0m[31merror[0m] [0m[0m      val c = OneOne[Int] // create intermediate channel[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:50:20: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m      var system = proc{} // create new system[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:66:78: not found: type PROC[0m
+[0m[[0m[31merror[0m] [0m[0m      def fastInsert(ins: List[?[Int ]], in: ?[Int], outs: List [![ Int ]]): PROC = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:66:32: not found: type ?[0m
+[0m[[0m[31merror[0m] [0m[0m      def fastInsert(ins: List[?[Int ]], in: ?[Int], outs: List [![ Int ]]): PROC = {[0m
+[0m[[0m[31merror[0m] [0m[0m                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:66:46: not found: type ?[0m
+[0m[[0m[31merror[0m] [0m[0m      def fastInsert(ins: List[?[Int ]], in: ?[Int], outs: List [![ Int ]]): PROC = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:66:66: not found: type ![0m
+[0m[[0m[31merror[0m] [0m[0m      def fastInsert(ins: List[?[Int ]], in: ?[Int], outs: List [![ Int ]]): PROC = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:68:19: not found: value OneOne[0m
+[0m[[0m[31merror[0m] [0m[0m        val c,d = OneOne[Int] // create intermediate channel[0m
+[0m[[0m[31merror[0m] [0m[0m                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:69:22: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m        var system = proc{} // create new system[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:90:67: not found: type PROC[0m
+[0m[[0m[31merror[0m] [0m[0m    def insertionSort(ins: List[?[Int ]], outs: List [![ Int ]]): PROC = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:90:33: not found: type ?[0m
+[0m[[0m[31merror[0m] [0m[0m    def insertionSort(ins: List[?[Int ]], outs: List [![ Int ]]): PROC = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:90:55: not found: type ![0m
+[0m[[0m[31merror[0m] [0m[0m    def insertionSort(ins: List[?[Int ]], outs: List [![ Int ]]): PROC = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:92:22: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m        var system = proc{} // create new system[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:93:34: not found: value OneOne[0m
+[0m[[0m[31merror[0m] [0m[0m        val med = List.fill(n-1)(OneOne[Int]) // intermediate channles[0m
+[0m[[0m[31merror[0m] [0m[0m                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:114:26: not found: value OneOne[0m
+[0m[[0m[31merror[0m] [0m[0m    val i0, i1, i2, i3 = OneOne[Int] // inpout channels[0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:116:26: not found: value OneOne[0m
+[0m[[0m[31merror[0m] [0m[0m    val o0, o1, o2, o3 = OneOne[Int] // output channels[0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:119:21: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m    var sendprocs = proc{}[0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:121:15: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m      def p = proc{ ins(i)!xs(i); ins(i).closeOut }[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:125:20: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m    def recprocs = proc{ // receive outputs sequentially to avoid caching conflicts, then close InPort of out channels[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:131:5: not found: value run[0m
+[0m[[0m[31merror[0m] [0m[0m    run(sendprocs || sorter || recprocs)[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:138:28: not found: value OneOne[0m
+[0m[[0m[31merror[0m] [0m[0m    val ins = List.fill(n)(OneOne[Int]) // list of ins channels[0m
+[0m[[0m[31merror[0m] [0m[0m                           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:139:31: not found: value OneOne[0m
+[0m[[0m[31merror[0m] [0m[0m    val outs = List.fill(n+1)(OneOne[Int]) // list of outs channels[0m
+[0m[[0m[31merror[0m] [0m[0m                              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:140:14: not found: value OneOne[0m
+[0m[[0m[31merror[0m] [0m[0m    val in = OneOne[Int] // in channel[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:142:21: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m    var sendprocs = proc{ in!x; in.closeOut } // send in value[0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:144:15: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m      def p = proc{ ins(i)!xs(i); ins(i).closeOut }[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:148:20: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m    def recprocs = proc{ // receive outputs sequentially to avoid caching conflicts, then close InPort of out channels[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:154:5: not found: value run[0m
+[0m[[0m[31merror[0m] [0m[0m    run(sendprocs || sorter || recprocs)[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:161:28: not found: value OneOne[0m
+[0m[[0m[31merror[0m] [0m[0m    val ins = List.fill(n)(OneOne[Int]) // list of ins channels[0m
+[0m[[0m[31merror[0m] [0m[0m                           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:162:29: not found: value OneOne[0m
+[0m[[0m[31merror[0m] [0m[0m    val outs = List.fill(n)(OneOne[Int]) // list of outs channels[0m
+[0m[[0m[31merror[0m] [0m[0m                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:164:21: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m    var sendprocs = proc{}[0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:166:15: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m      def p = proc{ ins(i)!xs(i); ins(i).closeOut }[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:170:20: not found: value proc[0m
+[0m[[0m[31merror[0m] [0m[0m    def recprocs = proc{ // receive outputs sequentially to avoid caching conflicts, then close InPort of out channels[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/lioraweisz/Scala/Prac1.scala:176:5: not found: value run[0m
+[0m[[0m[31merror[0m] [0m[0m    run(sendprocs || sorter || recprocs)[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m265 errors found[0m

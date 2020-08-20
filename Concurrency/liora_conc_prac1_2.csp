@@ -1,0 +1,58 @@
+-- 1) Horse can never perform forward or backward because {forward, backward} is the set of events that Front and Back must agree on due to the parallel composition. As Back can never do event forward and Front can never do backward, they never agree on either of these events and hence they can’t happen. Because we never reach forward, Front can never do neigh since neigh must follow forward; similarly, Back can never reach kick as backward will never happen.
+
+-- 2)
+channel forward, backward, neigh, nod, kick, wag
+
+F = {forward, backward, nod, neigh}
+B = {forward, backward, wag, kick}
+
+Front = forward -> neigh -> Front
+        [] nod -> Front
+
+Back = backward -> kick -> Back
+        [] wag -> Back
+
+Horse = Front [F || B] Back
+
+-- 3)
+assert RUN({nod, wag}) [T= Horse
+
+-- 4)
+PH1 = neigh -> forward -> kick -> backward -> PH1
+
+Front1 = neigh -> forward -> backward -> Front1
+
+Back1 = forward -> kick -> backward -> Back1
+
+Horse1 = Front1 [F || B] Back1
+
+assert Horse1 [T= PH1
+assert PH1 [T= Horse1
+
+-- 5)
+PH2 = forward -> neigh -> PH2
+      [] backward -> kick -> PH2
+
+Front2 = forward -> neigh -> Front2
+        [] backward -> Front2
+
+Back2 = forward -> Back2
+        [] backward -> kick -> Back2
+
+Horse2 = Front2 [F || B] Back2
+
+assert Horse2 [T= PH2
+assert PH2 [T= Horse2
+
+-- 6)
+PH3 = neigh -> wag -> forward -> PH3
+      [] wag -> neigh -> forward -> PH3
+
+Front3 = neigh -> forward -> Front3
+
+Back3 = wag -> forward -> Back3
+
+Horse3 = Front3 [F || B] Back3
+
+assert Horse3 [T= PH3
+assert PH3 [T= Horse3
