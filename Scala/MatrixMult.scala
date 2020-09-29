@@ -28,7 +28,7 @@ class MatrixMult(a : Array[Array[Int]], b : Array[Array[Int]], n : Int, nWorkers
   private def dot(i: Int, j: Int) = {
     var sum = 0
     for (k <- 0 until n){
-      sum += a(i)(k) * b(k)(i)
+      sum += a(i)(k) * b(k)(j)
     }
     sum
   }
@@ -98,7 +98,7 @@ object MatrixMultTest{
       for (j <- 0 until n){
         var z = 0
         for (k <- 0 until n){
-          z += a(i)(k) * b(k)(i)
+          z += a(i)(k) * b(k)(j)
         }
         assert(z == c(i)(j))
       }
