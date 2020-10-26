@@ -4,7 +4,6 @@ import ox.cads.testing._
 import io.threadcso.debug.Log
 import scala.language.postfixOps
 
-
 object Q1{
   type Rectangular[T] = Array[Array[T]]
   type Image = Rectangular[Boolean]
