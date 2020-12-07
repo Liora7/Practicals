@@ -13,9 +13,37 @@ data Value =
   | Addr Location
   | Function ([Value] -> Mem -> (Value, Mem))
 
+data Expr =
+    Address Expr
+  | Contents Expr
+
 type Env = Environment Value
 
 type Mem = Memory Value
+
+etranslate :: Expr -> Expr
+etranslate (Number n) = Number n
+etranslate (Variable x) = if maybe_find init_env x == Nothing
+                          then Apply (Variable "!") [(Variable x)]
+                          else Variable x
+etranslate (If e1 e2 e3) = If (etranslate e1) (etranslate e2) (etranslate e3)
+etranslate (Apply f es) = Apply f (map (ref . etranslate) es)
+etranslate (Let d e1) = Let (dtranslate d) (etranslate e1)
+etranslate (Assign e1 e2) = Assign e1 (etranslate e2)
+etranslate (Sequence e1 e2) = Sequence (etranslate e1) (etranslate e2)
+etranslate (While e1 e2) = While (etranslate e1) (etranslate e2)
+etranslate (Lambda xs body) = Lambda xs (etranslate body)
+etranslate (Address (Variable x)) = Variable x
+etranslate (Address (Contents e)) = etranslate e
+etranslate (Contents e) = Apply (Variable "!") [(etranslate e)]
+
+
+dtranslate :: Defn -> Defn
+dtranslate (Val x e) = Val x ((ref . etranslate) e)
+dtranslate (Rec x e) = Rec x (etranslate e)
+
+ref :: Expr -> Expr
+ref v = Let (Val "refdummy" (Apply (Variable "new") [])) (Sequence (Assign (Variable "refdummy") v) (Variable "refdummy"))
 
 eval :: Expr -> Env -> Mem -> (Value, Mem)
 

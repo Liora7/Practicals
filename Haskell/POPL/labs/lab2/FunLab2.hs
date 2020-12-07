@@ -57,8 +57,8 @@ eval (Variable x) env =
     Const v -> result v
     Param vm -> vm
 eval (Apply f es) env =
-  eval f env $> (\fv ->
-      apply fv es)
+  eval f env $> (\fv -> result(map (\x -> eval x env) es)$> (\args ->
+      apply fv args))
 eval (If e1 e2 e3) env =
   eval e1 env $> (\b ->
     case b of
@@ -113,7 +113,10 @@ elab (Rec x e) env =
 
 
 values :: [M a] -> M [a]
-values es = evalargs (map (\e -> eval e env) es) env
+values [] = result []
+values (e:es) = e $> (\v ->
+  values es $> (\vs ->
+    result (v:vs)))
 
 -- INITIAL ENVIRONMENT
 
@@ -144,8 +147,51 @@ init_env =
     primitive "!" (\ [Addr a] -> get a)]
   where
     constant x v = (x, Const v)
-    primitive x f = (x, Const (Function (primwrap x f)))
+    primitive x f = (x, Const (Function ((\xms -> (values xms) $> primwrap x f) )))
     pureprim x f = primitive x (result . f)
+
+
+-- Experiments to show that parameters are only evaluated when they are used, parameters are not evaluated if they're not used, and params are evaluated afresh each time they are used
+--
+--     >>> val x=new();;
+--     --- x = <address 0>
+--     >>> x:=3;;
+--     --> 3
+-- Params only evaluated when they are used:
+--     >>> val f(y) = (x:=4; y);;
+--     --- f = <function>
+--     >>> f(!x);;
+--     --> 4
+--
+-- Params not evaluated if they are not used:
+--     >>> val g(y) = 0;;
+--     --- g = <function>
+--     >>> g(x:=5; x);;
+--     --> 0
+--     >>> !x;;
+--     --> 4
+--
+-- Params are evaluated afresh each time they're used:
+--     >>> val j(y) = (x:=y-1; y);;
+--     --- j = <function>
+--     >>> j(!x);;
+--     --> 3
+--     >>> !x;;
+--     --> 3
+--
+--     rlwrap ./fun jensen.fun
+--     --- sum = <function>
+--     --- go = <function>
+--     >>> go();;
+--     --> 285
+--   To get this effect in a language with lambda expressions and call-by-value, we would replace f by a lambda expression \i -> i*i and simply pass in the current value of i to f on each iteration of the while loop. This would still work in our modified version of Fun:
+--   >>> val sum(i, a, b, f)=(let val s=new() in i:=a; s:=0; while !i<b do (s:=!s+f(!i); i:=!i+1); !s);;
+--   --- sum = <function>
+--   >>> val go()=let val i=new() in sum(i, 0, 10, (lambda (n) n*n));;
+--   --- go = <function>
+--   >>> go();;
+--   --> 285
+
 
 
 -- AUXILIARY FUNCTIONS ON VALUES

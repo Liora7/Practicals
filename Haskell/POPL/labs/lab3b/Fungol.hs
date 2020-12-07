@@ -10,42 +10,33 @@ import FunParser
 
 infixl 1 $>
 
-type Cont a = a -> Mem -> Answer
+type M a = Mem -> (Maybe a, Mem)
 
-type M a = Mem -> Cont () -> Cont a -> Answer
+result x mem = (Just x, mem)
 
-result x mem kx ks = ks x mem
-
-(xm $> f) mem kx ks =
-  xm mem kx (\ x mem' -> f x mem' kx ks)
+(xm $> f) mem = case xm mem of
+  (Just x, mem') -> f x mem'
+  (Nothing, mem') -> (Nothing, mem')
 
 get :: Location -> M Value
-get a mem kx ks = ks (contents mem a) mem
+get a mem = (Just(contents mem a), mem)
 
 put :: Location -> Value -> M ()
-put a v mem kx ks = ks () (update mem a v)
+put a v mem = (Just (), update mem a v)
 
 new :: M Location
-new mem kx ks = let (loc, mem') = fresh mem in ks loc mem'
+new mem = let (loc, mem') = fresh mem in (Just loc, mem')
 
 exit :: M a
-exit mem kx ks = kx () mem
+exit mem = (Nothing, mem)
 
 orelse :: M a -> M a -> M a
-orelse xm ym mem kx ks = xm mem (\r -> (\mem' -> ym mem' kx ks)) ks
+orelse xm ym mem = case xm mem of
+  (Just x, mem') -> (Just x, mem')
+  (Nothing, mem') -> ym mem'
 
 bind :: Value -> M Location
 bind v = new $> (\ a -> put a v $> (\ () -> result a))
-
---------
-
-callxc :: (Cont () -> M a) -> M a
-callxc f mem kx ks = f kx mem kx ks
-
-withxc :: Cont () -> M a -> M a
-withxc kx xm mem kx' ks = xm mem kx ks
-
---------
 
 
 -- SEMANTIC DOMAINS
@@ -124,11 +115,11 @@ mapm f [] = result []
 mapm f (x:xs) =
   f x $> (\y -> mapm f xs $> (\ys -> result (y:ys)))
 
-abstract :: [Ident] -> Expr -> Env -> Cont () -> Def
-abstract xs e env kx =
-  Proc (\ args -> withxc kx (
+abstract :: [Ident] -> Expr -> Env -> Def
+abstract xs e env =
+  Proc (\ args ->
     mapm bind args $> (\ as ->
-      eval e (defargs env xs (map Ref as)))))
+      eval e (defargs env xs (map Ref as))))
 
 apply :: Def -> [Value] -> M Value
 apply (Proc f) args = f args
@@ -141,7 +132,7 @@ elab (Val x e) env =
     bind v $> (\ a -> result (define env x (Ref a))))
 
 elab (Rec x (Lambda xs e1)) env =
-  callxc (\kx -> let env' = define env x (abstract xs e1 env' kx) in result env')
+  let env' = define env x (abstract xs e1 env') in result env'
 
 elab (Rec x _) env =
   error "RHS of letrec must be a lambda"
@@ -205,17 +196,16 @@ instance Show Def where
 -- MAIN PROGRAM
 
 type GloState = (Env, Mem)
-type Answer = (String, GloState)
 
 obey :: Phrase -> GloState -> (String, GloState)
 obey (Calculate exp) (env, mem) =
-  eval exp env mem
-    (\ () mem' -> ("***exit in main program***", (env, mem')))
-    (\ v mem' -> (print_value v, (env, mem')))
+  case eval exp env mem of
+    (Just v, mem') -> (print_value v, (env, mem'))
+    (Nothing, mem') -> error ("exit outside of loop")
 obey (Define def) (env, mem) =
   let x = def_lhs def in
-  elab def env mem
-    (\ () mem' -> ("***exit in definition***", (env, mem')))
-    (\ env' mem' -> (print_defn env' x, (env', mem')))
+  case elab def env mem of
+    (Just env', mem') -> (print_defn env' x, (env', mem'))
+    (Nothing, mem') -> error ("elab failed")
 
 main = dialog funParser obey (init_env, init_mem)

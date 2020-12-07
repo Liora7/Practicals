@@ -1,6 +1,29 @@
 {-module Main where
 import Prelude hiding (&&)-}
 
+revk :: [Int] -> ([Int] -> Answer) -> Answer
+revk [] k = k []
+revk (x:xs) k = revk xs (\r -> k(r++[x]))
+
+revi :: [Int] -> [Int]
+revi xs = revi' xs []
+
+revi' :: [Int] -> [Int] -> [Int]
+revi' [] ys = ys
+revi' (x:xs) ys = revi' xs (x:ys)
+
+data Cont =
+  Show | Sum Int Cont | Fib Int Cont
+
+apply :: Cont -> Int -> Int
+apply Show x = x
+apply (Sum n k) x = apply k (n+x)
+apply (Fib n k) x = apply Sum((fibk n id) k) x
+
+fibk n k =
+if n <= 1 then apply k n else fibk (n - 1) (Fib (n-2) k)
+
+
 
 -- index :: Eq a => a -> [a] -> Int
 -- index x [] = -1
